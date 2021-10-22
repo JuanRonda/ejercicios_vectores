@@ -1,5 +1,3 @@
-#1 ACTIVIDAD
-
 # a va a imprimir  2, 4, 6
 '''
 Se pide que a se repita 2 veces.
