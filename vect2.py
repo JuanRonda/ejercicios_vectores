@@ -13,5 +13,19 @@ for i in lista:
         n_impares += 1
     
 
+#actividad b
+import random
+
+contador = 0
+lista =[]
+for i in range(16):
+    lista.append(random.randrange(1, 10))
+for i in range(0, len(lista)):
+    if(i % 3 == 0):
+        contador = contador + lista[i]
+        
+
+#actividad c
+
     
     
