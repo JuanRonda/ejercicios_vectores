@@ -16,16 +16,42 @@ for i in lista:
 #actividad b
 import random
 
-contador = 0
 lista =[]
 for i in range(16):
     lista.append(random.randrange(1, 10))
-for i in range(0, len(lista)):
+acumulador = 0
+for i in range(0,15):
     if(i % 3 == 0):
-        contador = contador + lista[i]
+        acumulador = acumulador + lista[i]
+    print(lista)
+    print("acumulador: ", acumulador)
         
 
 #actividad c
+
+import random
+
+lista =[]
+for i in range(16):
+    lista.append(random.randrange(1, 10))
+    
+#inicializar las variables
+
+def apartado_c(lista):
+    n = len(lista)
+    f = [0,1]
+    x = 0
+    res = 0
+    
+    for i in f:
+        res = res + i
+        f.append(res)
+        x += 1
+        if(x == n):
+            break
+    f.pop(0)
+    f.pop(0)
+    return f
 
     
     
