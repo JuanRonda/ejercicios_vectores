@@ -76,3 +76,49 @@ class Abeja(Animal):
     def picar(self):
         print("Picar!")
         
+
+        
+        
+#guerrrero
+
+import random
+class guerrero:
+    def __init__(self, nombre, vida, fuerza, precisión, velocidad, defensa):
+        self.nombre = nombre
+        self.vida = vida
+        self.fuerza = fuerza
+        self.precisión = precisión
+        self.velocidad = velocidad
+        self.defensa = defensa
+        
+    def golpear(self,g):
+        # veo si acierto el golpe
+        if(random.random() <= (self.precisión - g.velocidad) / 100):
+            #en caso de acertar, agrego dañoa al oponente
+            g.vida -= max([(self.fuerza - g.defensa) + random.randrange(-10,11),1])
+            print("Golpe certero de", self.nombre)
+        else:
+            print(g.nombre, "esquiva el golpe!")
+            
+def simular_batalla(j1,j2):
+    #comienza jugador más veloz
+    golpeador,receptor = j1, j2
+    if(j1.velocidad < j2.velocidad):
+        golpeador,receptor = j2, j1
+    #se golpean hasta que alguno tenga vida cero
+    while(j1.vida > 0 and j2.vida > 0):
+        print("\n" + j1.nombre,j1.vida, "vs", j2.vida,j2.nombre)
+        golpeador.golpear(receptor)
+        #cambio de turnos
+        golpeador,receptor = receptor,golpeador
+    #fin
+        print("\n" + j1.nombre,j1.vida, "vs", j2.vida,j2.nombre)
+        print("Ganador", receptor.nombre)
+              
+#batalla de ejemplo
+superman = guerrero("Superman",100,50,80,30,20)
+goku = guerrero("Gokú",100,60,80,40,20)
+chuck = guerrero("Chuck Norris",200,99,99,99,99)
+
+#simula batalla
+simular_batalla(goku,chuck)
